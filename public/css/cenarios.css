@@ -1,0 +1,40 @@
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background-color: #605ca8 !important;
+}
+.list-group > li{
+    cursor: pointer;
+}
+
+fieldset {
+    margin: 15px;
+}
+fieldset span {
+    font-style: italic !important;
+    color: #166cd8;
+}
+
+fieldset span input {
+    text-align: center !important;
+}
+
+fieldset .col{
+    padding-left: 0px !important;
+    margin-top: 1px;
+}
+
+fieldset .btn {
+    padding: 1px 6px;
+}
+
+.input-step {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #1ac307;
+}
+i{
+    width: 15px!important;
+}
+.box-title input{
+    width: 400px;
+}
