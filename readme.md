@@ -14,7 +14,6 @@ a fundo.
 
 - Composer install
 - php artisan vendor:publish --provider="Backpack\Base\BaseServiceProvider"
-- php artisan vendor:publish --provider="Prologue\Alerts\AlertsServiceProvider"
 - Configure sua .env
 - php artisan migrate:refresh --seed
 - Abra http://localhost/mr.test/public/admin

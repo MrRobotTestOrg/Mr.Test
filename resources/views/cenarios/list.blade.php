@@ -22,7 +22,7 @@
 @endsection
 
 @section('content')
-    <div class="row container" id="app">
+    <div class="row" id="app">
         <div class="col col-md-4">
             <div class="row">
                 <div class="form-group">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" v-show="featureEscolhida.para_que">
                 <div class="form-group">
                     <div class="box">
                         <div class="box-header with-border">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" v-show="featureEscolhida.para_que">
                 <div class="form-group">
                     <div class="box">
                         <div class="box-header with-border">

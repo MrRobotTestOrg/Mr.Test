@@ -161,7 +161,7 @@ new Vue({
 
             this.cenarioEscolhido.steps.push(stepASerAdicionado)
         },
-        salvarCenario () {
+        salvarCenario: function () {
             this.$http.post($('#base-path').val() + '/api/cenarios', this.cenarioEscolhido).then( function (response) {
                 new PNotify({
                     title: "Salvo!",
@@ -179,7 +179,7 @@ new Vue({
 
 
         },
-        criarCenario () {
+        criarCenario: function () {
             this.cenarioEscolhido = {
                 titulo: 'Novo Cenário',
                 feature_id: this.selectFeature,
