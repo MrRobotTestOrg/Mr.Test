@@ -1,27 +1,30 @@
-# Laravel PHP Framework
+# Mr.Test
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Projeto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Desenvolvimento de uma ferramenta para auxiliar equipes de teste a manterem 
+varios projetos (enteprise), com testes funcionais em aplicações web.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Motivação
 
-## Official Documentation
+Incentivar e incluir pessoas que não gostam de entrar no mundo da codificação
+a fundo.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Planejamento futuro
 
-## Contributing
+- Criar uma interface para criação de Features e Cenários com autocomplete dos steps
+- Permitir uma manipulação simples dos dados do banco
+- Interface para organização de multiplos módulos
+- Configuração com ferramentas de integração continua
+- Relatórios melhores 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Tecnologias utilizadas
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- Behat (http://behat.org/en/latest/)
+- Mink (http://mink.behat.org/en/latest/)
+- PhantomJS (http://phantomjs.org/)
+- Selenium (http://www.seleniumhq.org/)
+- Medoo (http://medoo.in/)
+- Laravel Backpack (https://github.com/Laravel-Backpack)
+- Vuejs (https://vuejs.org/)
