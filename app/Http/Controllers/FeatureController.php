@@ -14,7 +14,12 @@ class FeatureController extends CrudController
         $this->crud->setRoute("admin/feature");
         $this->crud->setEntityNameStrings('funcionalidade', 'Funcionalidades');
 
-        $this->crud->addColumns(['titulo', 'para_que', 'como_um', 'eu_devo', ['name' => 'modulo','visible_key' => 'nome']]);
+        $this->crud->addColumns(['titulo', 'para_que', 'como_um', 'eu_devo', 'modulo']);
+        $this->crud->setColumnDetails('modulo', [
+            'type' => 'array',
+            'display_field' => 'nome'
+        ]);
+
 
         $this->crud->addField([
             'name' => 'titulo',
