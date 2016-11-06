@@ -10,6 +10,15 @@ varios projetos (enteprise), com testes funcionais em aplicações web.
 Incentivar e incluir pessoas que não gostam de entrar no mundo da codificação
 a fundo.
 
+## Instalação
+
+- Composer install
+- php artisan vendor:publish --provider="Backpack\Base\BaseServiceProvider"
+- php artisan vendor:publish --provider="Prologue\Alerts\AlertsServiceProvider"
+- Configure sua .env
+- php artisan migrate:refresh --seed
+- Abra http://localhost/mr.test/public/admin
+
 ## Tecnologias utilizadas
 
 - Behat (http://behat.org/en/latest/)
