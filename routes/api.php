@@ -4,6 +4,7 @@ use App\CenarioStep;
 use App\Cenario;
 use Illuminate\Http\Request;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
+use Symfony\Component\Yaml\Yaml;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
+Route::get('/test', function (Request $request) {
+
+    $feature = \App\Cenario::find(1);
+
+    $builder = new \App\Services\FeatureBuilder();
+    $builder->build($feature);
+});
 
 Route::get('/cenarios/by-feature/{id}', function (Request $request, $id) {
     return \App\Cenario::where('feature_id','=', $id)->with(['steps'])->get();

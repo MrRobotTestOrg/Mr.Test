@@ -124,16 +124,6 @@ new Vue({
                 return step.nome.indexOf(valorFiltro) !== -1
             })
         },
-        /*  gerarInputDosSteps: function () {
-         let padrao = /"[0-9a-zA-Z]+"/g;
-
-         var stepASerAdicionado = []
-         for (let step of this.cenarioEscolhido.steps) {
-         stepASerAdicionado = JSON.parse(JSON.stringify(step));
-         stepASerAdicionado.nome = stepASerAdicionado.nome.replace(padrao , '<input class="input-step" type=text value="' + step.pivot.valor +'" >');
-         this.stepsDoCenarioEscolhidoComInput.push(stepASerAdicionado)
-         }
-         },*/
         remover: function (step) {
             var index = this.cenarioEscolhido.steps.indexOf(step);
             this.cenarioEscolhido.steps.splice(index, 1);
