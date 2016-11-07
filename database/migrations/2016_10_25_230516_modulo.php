@@ -16,6 +16,7 @@ class Modulo extends Migration
         Schema::create('modulo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->string('caminho_base');
         });
     }
 

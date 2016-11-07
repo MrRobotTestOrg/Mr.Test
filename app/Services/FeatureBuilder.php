@@ -14,9 +14,6 @@ class FeatureBuilder
     private $template = "#language: pt
 Funcionalidade: teste
 
-@parallel-scenario
-@javascript
-Cenário: {{titulo}}
 ";
 
     private function bind($replacements, $template)
@@ -29,13 +26,18 @@ Cenário: {{titulo}}
 
     public function build ($feature) {
 
-        foreach ($feature->steps()->get() as $step){
-            $this->template .= '  ' .$step->pivot->valor . "\n";
+        foreach ($feature->cenarios as $cenario){
+            $this->template .= '@javascript ' . "\n";
+            $this->template .= 'Cenário: ' .$cenario->titulo . "\n";
+            foreach ($cenario->steps as $step){
+                $this->template .= '  ' .$step->pivot->valor . "\n";
+            }
+
+            $this->template .= "\n";
+
         }
-        $banco = [
-            'titulo' => $feature->titulo
-        ];
-        $dados = $this->bind($banco, $this->template);
+
+        $dados = $this->bind([], $this->template);
 
         file_put_contents(storage_path('google.feature'), $dados);
     }

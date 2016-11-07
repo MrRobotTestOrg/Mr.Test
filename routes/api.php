@@ -23,7 +23,7 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/test', function (Request $request) {
 
-    $feature = \App\Cenario::find(1);
+    $feature = \App\Feature::find(1);
 
     $builder = new \App\Services\FeatureBuilder();
     $builder->build($feature);

@@ -10,7 +10,7 @@ class Modulo extends Model
     use CrudTrait;
 
     protected $table = 'modulo';
-    protected $fillable = ['nome'];
+    protected $fillable = ['nome','caminho_base'];
     public $timestamps = false;
 
     public function features()

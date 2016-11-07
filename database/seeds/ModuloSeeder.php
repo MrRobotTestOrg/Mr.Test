@@ -12,8 +12,8 @@ class ModuloSeeder extends Seeder
     public function run()
     {
         
-            DB::table('modulo')->insert(['nome' => 'Conpepe']);
-            DB::table('modulo')->insert(['nome' => 'Identificação']);
-            DB::table('modulo')->insert(['nome' => 'Portal']);
+            DB::table('modulo')->insert(['nome' => 'Conpepe', 'caminho_base' => 'http://localhost/conpepe']);
+            DB::table('modulo')->insert(['nome' => 'Identificação', 'caminho_base' => 'http://localhost/identificacao']);
+            DB::table('modulo')->insert(['nome' => 'Portal', 'caminho_base' => 'http://localhost/portal']);
     }
 }

@@ -17,4 +17,9 @@ class Feature extends Model
     {
         return $this->belongsTo('App\Modulo');
     }
+
+    public function cenarios()
+    {
+        return $this->hasMany('App\Cenario');
+    }
 }
