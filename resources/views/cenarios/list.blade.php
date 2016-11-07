@@ -188,7 +188,7 @@
 
                     </div>
                     <div class="box-footer">
-                        <button type="submit" class="btn btn-danger ladda-button" data-style="zoom-in" @click="deletarCenario">
+                        <button type="submit" class="btn btn-danger ladda-button" data-style="zoom-in" @click="deletarCenario" v-show="cenarioEscolhido.id">
                         <span class="ladda-label">
                             <i class="fa fa-save"></i> Deletar este cenário
                         </span>
