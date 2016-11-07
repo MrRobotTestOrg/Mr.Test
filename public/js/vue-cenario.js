@@ -25,7 +25,7 @@ new Vue({
     },
     computed:{
         filtroPre: function () {
-            return this.fitrarSteps('Dados', this.cenarioEscolhido.steps)
+            return this.fitrarSteps('Dado', this.cenarioEscolhido.steps)
         },
         filtroAcoes: function () {
             return this.fitrarSteps('Quando', this.cenarioEscolhido.steps)
@@ -34,7 +34,7 @@ new Vue({
             return this.fitrarSteps('Entao', this.cenarioEscolhido.steps)
         },
         filtroPreOptions: function () {
-            return this.fitrarSteps('Dados', this.steps)
+            return this.fitrarSteps('Dado', this.steps)
         },
         filtroAcoesOptions: function () {
             return this.fitrarSteps('Quando', this.steps)

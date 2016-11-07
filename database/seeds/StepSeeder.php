@@ -22,13 +22,13 @@ class StepSeeder extends Seeder
         DB::table('step')->insert(['nome' => 'Quando Eu recarrego a página']);
         DB::table('step')->insert(['nome' => 'Quando Eu voltei uma página']);
         DB::table('step')->insert(['nome' => 'Quando Eu avancei uma página']);
-        DB::table('step')->insert(['nome' => 'Quando Eu pressiono """"']);
-        DB::table('step')->insert(['nome' => 'Quando Eu preencho "value" para ""']);
+        DB::table('step')->insert(['nome' => 'Quando Eu pressiono "botao"']);
+        DB::table('step')->insert(['nome' => 'Quando Eu preencho "valor" para "elemento"']);
         DB::table('step')->insert(['nome' => 'Quando Eu seleciono "option" de "select"']);
         DB::table('step')->insert(['nome' => 'Quando Eu seleciono também "option"" de "select"']);
         DB::table('step')->insert(['nome' => 'Quando Eu marco "option"']);
         DB::table('step')->insert(['nome' => 'Quando Eu desmarco "option"']);
-        DB::table('step')->insert(['nome' => 'Quando Eu anexo o arquivo "path"" ao ""']);
+        DB::table('step')->insert(['nome' => 'Quando Eu anexo o arquivo "path"" ao "elemento"']);
 
         DB::table('step')->insert(['nome' => 'Entao Eu devo estar em "url"']);
         DB::table('step')->insert(['nome' => 'Entao Eu devo ver "texto"']);
@@ -37,9 +37,9 @@ class StepSeeder extends Seeder
         DB::table('step')->insert(['nome' => 'Entao Eu devo ver "texto" no elemento "elemento"']);
         DB::table('step')->insert(['nome' => 'Entao Eu não deveria de ver "texto" no elemento "elemento"']);
         DB::table('step')->insert(['nome' => 'Entao o elemento "elemento" deve conter "valor"']);
-        DB::table('step')->insert(['nome' => 'Entao the "element"" element should not contain "value"""']);
-        DB::table('step')->insert(['nome' => 'Entao Eu devo ver um elemento "element""']);
-        DB::table('step')->insert(['nome' => 'Entao Eu não devo ver um elemento \"element\"\"']);
+        DB::table('step')->insert(['nome' => 'Entao the "elemento" element should not contain "value"']);
+        DB::table('step')->insert(['nome' => 'Entao Eu devo ver um elemento "element"']);
+        DB::table('step')->insert(['nome' => 'Entao Eu não devo ver um elemento "elemento"']);
         DB::table('step')->insert(['nome' => 'Entao o campo "campo" deve conter "valor"']);
         DB::table('step')->insert(['nome' => 'Entao o campo "campo" não deve conter "valor"']);
         DB::table('step')->insert(['nome' => 'Entao print current URL']);
