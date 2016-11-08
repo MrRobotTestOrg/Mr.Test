@@ -8,7 +8,8 @@ new Vue({
         selectFeature: '',
         featureEscolhida: [],
         cenarioEscolhido: {
-            steps: []
+            steps: [],
+            paralelo: 0
         },
         stepsDoCenarioEscolhidoComInput: [],
         cenarios: [],
@@ -91,7 +92,8 @@ new Vue({
                 vm.$http.delete($('#base-path').val() + '/api/cenarios/' + vm.cenarioEscolhido.id ).then( function (response) {
                     vm.fetchCenarios()
                     vm.cenarioEscolhido = {
-                        steps: []
+                        steps: [],
+                        paralelo: false
                     }
                     new PNotify({
                         title: "Deletado!",
@@ -173,6 +175,7 @@ new Vue({
             this.cenarioEscolhido = {
                 titulo: 'Novo Cenário',
                 feature_id: this.selectFeature,
+                paralelo: false,
                 steps: []
             }
         }

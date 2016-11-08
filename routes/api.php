@@ -2,6 +2,8 @@
 
 use App\CenarioStep;
 use App\Cenario;
+use App\Feature;
+use App\Services\FeatureBuilder;
 use Illuminate\Http\Request;
 use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Symfony\Component\Yaml\Yaml;
@@ -23,10 +25,6 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/test', function (Request $request) {
 
-    $feature = \App\Feature::find(1);
-
-    $builder = new \App\Services\FeatureBuilder();
-    $builder->build($feature);
 });
 
 Route::get('/cenarios/by-feature/{id}', function (Request $request, $id) {
@@ -52,6 +50,7 @@ Route::post('/cenarios', function (Request $request) {
     //@todo encapsular em transação de banco
     $cenario = Cenario::findOrNew($request->get('id'));
     $cenario->titulo = $request->get('titulo');
+    $cenario->paralelo = $request->get('paralelo');
     $cenario->feature_id = $request->get('feature_id');
     $cenario->save();
 
@@ -68,10 +67,16 @@ Route::post('/cenarios', function (Request $request) {
             ]);
         }
     }
+
+    $feature = Feature::find($cenario->feature->id);
+
+    $builder = new FeatureBuilder();
+    $builder->build($feature);
+
     return response('', 201);
 });
 
 Route::get('/features/{id?}', function (Request $request, $id) {
-    return \App\Feature::find($id);
+    return Feature::find($id);
 });
 

@@ -100,6 +100,11 @@
                 <div class="box" v-show="cenarioEscolhido.titulo">
                     <div class="box-header with-border">
                         <h3 class="box-title">Cenário : <input class="text-red input-step " v-model="cenarioEscolhido.titulo" /></h3>
+                        <h4 class="pull-right">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="" v-model="cenarioEscolhido.paralelo">Paralelo ?</label>
+                            </div>
+                        </h4>
                     </div>
                     <div class="box-body">
                         <fieldset >

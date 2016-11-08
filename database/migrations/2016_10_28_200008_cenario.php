@@ -16,6 +16,7 @@ class Cenario extends Migration
         Schema::create('cenario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
+            $table->boolean('paralelo');
             $table->integer('feature_id')->unsigned();
             $table->foreign('feature_id')->references('id')->on('feature');
 

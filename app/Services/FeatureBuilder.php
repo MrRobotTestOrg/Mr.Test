@@ -11,10 +11,7 @@ namespace App\Services;
 
 class FeatureBuilder
 {
-    private $template = "#language: pt
-Funcionalidade: teste
-
-";
+    private $template = "";
 
     private function bind($replacements, $template)
     {
@@ -25,20 +22,27 @@ Funcionalidade: teste
     }
 
     public function build ($feature) {
+        $this->template = "#language: pt \r\nFuncionalidade: {$feature->titulo} \r\n\r\n";
 
         foreach ($feature->cenarios as $cenario){
-            $this->template .= '@javascript ' . "\n";
-            $this->template .= 'Cenário: ' .$cenario->titulo . "\n";
+            $cenario->paralelo ? $this->template .= '@parallel-scenario ' . "\r\n" : '';
+            $this->template .= '@javascript ' . "\r\n";
+            $this->template .= 'Cenário: ' .$cenario->titulo . "\r\n";
             foreach ($cenario->steps as $step){
-                $this->template .= '  ' .$step->pivot->valor . "\n";
+                $this->template .= '  ' .$step->pivot->valor . "\r\n";
             }
 
-            $this->template .= "\n";
+            $this->template .= "\r\n";
 
         }
 
         $dados = $this->bind([], $this->template);
 
-        file_put_contents(storage_path('google.feature'), $dados);
+        $nomeModulo = strtr(utf8_decode($feature->modulo->nome), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+        $titulo = strtr(utf8_decode($feature->titulo), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+        $titulo = str_replace(' ', '_', $titulo);
+
+
+        file_put_contents(base_path("behat/{$nomeModulo}/features/{$titulo}.feature"), $dados);
     }
 }
