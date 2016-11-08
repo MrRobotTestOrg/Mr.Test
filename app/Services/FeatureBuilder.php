@@ -24,6 +24,10 @@ class FeatureBuilder
     public function build ($feature) {
         $this->template = "#language: pt \r\nFuncionalidade: {$feature->titulo} \r\n\r\n";
 
+        $this->template .= "Para que {$feature->para_que}" . "\r\n";
+        $this->template .= "Como um {$feature->como_um}" . "\r\n";
+        $this->template .= "Eu devo  {$feature->eu_devo}" . "\r\n \r\n";
+
         foreach ($feature->cenarios as $cenario){
             $cenario->paralelo ? $this->template .= '@parallel-scenario ' . "\r\n" : '';
             $this->template .= '@javascript ' . "\r\n";
