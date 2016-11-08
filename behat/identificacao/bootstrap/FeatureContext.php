@@ -1,6 +1,6 @@
 <?php
 
-use app\BaseContext;
+use behat\app\BaseContext;
 
 class FeatureContext extends BaseContext
 {

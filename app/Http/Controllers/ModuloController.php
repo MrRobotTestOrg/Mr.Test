@@ -47,7 +47,7 @@ class ModuloController extends CrudController
 
 use Behat\Gherkin\Node\TableNode;
 use Behat\Behat\Tester\Exception\PendingException;
-use app\BaseContext;
+use behat\app\BaseContext;
 class FeatureContext extends BaseContext
 {
     public function __construct()

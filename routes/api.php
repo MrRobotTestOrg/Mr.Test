@@ -24,6 +24,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::get('/test', function (Request $request) {
+    $cmd = base_path('vendor/bin/behat') . ' --config behat\conpepe\behat.yaml -p phantom';
+    $cmd2 = base_path('php /behat/conpepe/i.bat');
+    $output = shell_exec($cmd2);
+    echo "<pre>$output</pre>";
 
 });
 

@@ -1,5 +1,5 @@
 <?php
-namespace app;
+namespace Behat\App;
 use Behat\Behat\Hook\Scope\AfterStepScope;
 use Behat\Behat\Context\Context;
 use Behat\Gherkin\Node\TableNode;
@@ -7,7 +7,6 @@ use Behat\Mink\Driver\Selenium2Driver;
 use Behat\MinkExtension\Context\MinkContext;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use medoo;
-
 
 class BaseContext extends MinkContext  implements Context
 {
@@ -24,14 +23,14 @@ class BaseContext extends MinkContext  implements Context
      */
     public static function prepare(BeforeSuiteScope $scope)
     {
-        self::$db = new medoo([
+       /* self::$db = new medoo([
             'database_type' => 'mysql',
             'database_name' => 'autogab',
             'server' => 'localhost',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8'
-        ]);
+        ]);*/
 
     }
 
@@ -71,7 +70,7 @@ class BaseContext extends MinkContext  implements Context
     public function existeUm($tabela, TableNode  $dados)
     {
         foreach ($dados->getIterator() as $dado) {
-            self::$db->insert(TradutorTabela::traduzir($tabela), $dado);
+            //self::$db->insert(TradutorTabela::traduzir($tabela), $dado);
         }
 
     }
