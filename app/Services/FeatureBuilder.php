@@ -29,8 +29,10 @@ class FeatureBuilder
         $this->template .= "Eu devo  {$feature->eu_devo}" . "\r\n \r\n";
 
         foreach ($feature->cenarios as $cenario){
+            $titulo = $this->removeAcentos($cenario->titulo);
             $cenario->paralelo ? $this->template .= '@parallel-scenario ' . "\r\n" : '';
             $this->template .= '@javascript ' . "\r\n";
+            $this->template .= '@' . '' . str_replace(' ', '_', $titulo) . "\r\n";
             $this->template .= 'Cenário: ' .$cenario->titulo . "\r\n";
             foreach ($cenario->steps as $step){
                 $this->template .= '  ' .$step->pivot->valor . "\r\n";
@@ -42,11 +44,21 @@ class FeatureBuilder
 
         $dados = $this->bind([], $this->template);
 
-        $nomeModulo = strtr(utf8_decode($feature->modulo->nome), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+        $nomeModulo = $this->removeAcentos($feature->modulo->nome);
         $titulo = strtr(utf8_decode($feature->titulo), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
         $titulo = str_replace(' ', '_', $titulo);
 
 
         file_put_contents(base_path("behat/{$nomeModulo}/features/{$titulo}.feature"), $dados);
+    }
+
+    /**
+     * @param $feature
+     * @return string
+     */
+    public function removeAcentos($valor)
+    {
+        $valor = strtr(utf8_decode($valor), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+        return $valor;
     }
 }

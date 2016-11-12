@@ -203,10 +203,17 @@
                                 <i class="fa fa-save"></i> Salvar este cenário
                             </span>
                         </button>
+                        <button type="submit" class="btn btn-info ladda-button" data-style="zoom-in" @click="rodarTeste">
+                        <span class="ladda-label">
+                                <i class="fa fa-save"></i> Rodar o teste deste cenário
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+        <pre v-show="respostaTeste != ''"  v-html="respostaTeste">
+        </pre>
     </div>
 @endsection
 @section('after_scripts')

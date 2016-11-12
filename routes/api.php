@@ -18,17 +18,23 @@ use Symfony\Component\Yaml\Yaml;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//$output = shell_exec("cd $behat_config; (MINK_EXTENSION_PARAMS='base_url=$base_root' php $behat_bin -f html $file 2>&1)");
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-Route::get('/test', function (Request $request) {
-    $cmd = base_path('vendor/bin/behat') . ' --config behat\conpepe\behat.yaml -p phantom';
-    $cmd2 = base_path('php /behat/conpepe/i.bat');
-    $output = shell_exec($cmd2);
-    echo "<pre>$output</pre>";
+Route::post('/test', function (Request $request) {
+    $tituloCenario = strtr(utf8_decode($request->get('titulo')), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+    $tituloCenario = str_replace(' ', '_', $tituloCenario);
 
+    $basePath = base_path('vendor\behat\behat\bin\behat');
+    $fetaurePath = base_path('behat\conpepe\\');
+
+    $cmd = "C:\\laragon\\bin\\php\\php-7.0.12-Win32-VC14-x86\\php.exe {$basePath}" . " --tags @{$tituloCenario} --config {$fetaurePath}behat.yaml --no-snippets";
+
+    $output = shell_exec($cmd);
+    echo "<pre>$output</pre>";
 });
 
 Route::get('/cenarios/by-feature/{id}', function (Request $request, $id) {

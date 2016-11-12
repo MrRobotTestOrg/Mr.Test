@@ -16,7 +16,8 @@ new Vue({
         steps: [],
         novoStepPreId: [],
         novoStepAcaoId: [],
-        novoStepResultadoId: []
+        novoStepResultadoId: [],
+        respostaTeste: ''
     },
     watch: {
         selectFeature: function () {
@@ -178,6 +179,14 @@ new Vue({
                 paralelo: false,
                 steps: []
             }
+        },
+        rodarTeste: function () {
+            this.$http.post($('#base-path').val() + '/api/test', this.cenarioEscolhido).then( function (response) {
+                this.respostaTeste = response.body
+            }, function (response) {
+
+            });
+
         }
     }
 })
