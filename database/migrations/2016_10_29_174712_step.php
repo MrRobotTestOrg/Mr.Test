@@ -16,6 +16,7 @@ class Step extends Migration
         Schema::create('step', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
+            $table->integer('tipo');
         });
     }
 

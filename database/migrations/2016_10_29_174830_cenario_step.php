@@ -16,6 +16,7 @@ class CenarioStep extends Migration
         Schema::create('cenario_step', function (Blueprint $table) {
             $table->increments('id');
             $table->string('valor')->nullable();
+            $table->integer('ordem');
             $table->integer('cenario_id')->unsigned();
             $table->foreign('cenario_id')->references('id')->on('cenario');
             $table->integer('step_id')->unsigned();
